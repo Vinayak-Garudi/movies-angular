@@ -1,0 +1,20 @@
+.navContainer {
+    position: fixed;
+    z-index: 100;
+    background: #fff;
+    width: 100vw;
+    height: 3rem;
+}
+
+.navHead {
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1rem;
+    text-decoration: underline;
+    width: max-content;
+    color: rgb(67, 3, 128);
+}

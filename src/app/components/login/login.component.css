@@ -1,0 +1,59 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    color: #fff;
+}
+
+.loginContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    padding: 1.5rem 1rem;
+}
+
+.ipFields {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.authips {
+    padding: 0.3rem;
+    width: 20rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    border: none;
+}
+
+.ipLabel {
+    font-size: larger;
+    font-weight: 500;
+    margin: 0.4rem 0;
+}
+
+.authBtns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.authBtn {
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: 0;
+    border-radius: .3rem;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 500;
+    padding: 0.15rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px #fff;
+}

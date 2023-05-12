@@ -1,0 +1,11 @@
+.appContainner {
+    font-family: "Nunito",sans-serif;
+}
+
+.appPages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
