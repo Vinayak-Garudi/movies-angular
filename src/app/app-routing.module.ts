@@ -13,6 +13,11 @@ const routes: Routes = [
     path: 'users', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(mod => {
       return (mod.LazyLoadingModule)
     })
+  },
+  {
+    path: 'lazy', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(mod => {
+      return (mod.LazyLoadingModule)
+    })
   }
 ];
 

@@ -9,6 +9,8 @@ import { Observable, filter, from, interval, map } from 'rxjs';
 })
 export class MoviesComponent implements OnInit, OnChanges {
   movieArr: any[] = []
+  filteredMovieArr: any[] = []
+  searchMovie: string = ""
 
   constructor(private userData: UserDetailsService) {
   }
@@ -16,11 +18,14 @@ export class MoviesComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     setTimeout(() => {
       console.log("movie console", this.userData.movieResponse.results)
-      this.userData.movieResponse.results.forEach((data: any) => {
-        if (data.primaryImage) {
-          this.movieArr.push(data)
-        }
-      });
+      if (this.userData.movieResponse.results) {
+        this.userData.movieResponse.results.forEach((data: any) => {
+          if (data.primaryImage) {
+            this.movieArr.push(data)
+            this.filteredMovieArr = this.movieArr
+          }
+        });
+      }
     }, 2000);
 
     const observable = new Observable((observer => {
@@ -54,4 +59,20 @@ export class MoviesComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
   }
+
+  onMovieSearch() {
+    if (this.searchMovie && this.searchMovie.length > 0 && this.movieArr.length > 0) {
+      this.filteredMovieArr = this.movieArr.filter(x => {
+        if (x?.originalTitleText.text && x.originalTitleText.text) {
+
+          return x?.originalTitleText.text.toLowerCase().includes(this.searchMovie.toLowerCase())
+        }
+      })
+    }
+    else {
+      this.filteredMovieArr = this.movieArr
+    }
+    console.log("filteredMovie", this.filteredMovieArr)
+  }
+
 }

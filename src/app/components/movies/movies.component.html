@@ -1,5 +1,9 @@
- <div class="movieContainer">
-        <div *ngFor="let movies of movieArr" class="movieContent">
+<div class="movieAllContent">
+    <div class="searchDiv">
+        <input [(ngModel)]="searchMovie" (ngModelChange)="onMovieSearch()" name="movieSearch" type="text" class="searchIp" placeholder="Search for movies...">
+    </div>
+    <div class="movieContainer">
+        <div *ngFor="let movies of filteredMovieArr" class="movieContent">
             <div *ngIf="movies.primaryImage.url" class="card">
                 <img [src]="movies.primaryImage.url" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -10,3 +14,4 @@
             </div>
         </div>
     </div>
+</div>
