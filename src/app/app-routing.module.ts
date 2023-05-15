@@ -8,7 +8,12 @@ import { MoviesComponent } from './components/movies/movies.component';
 const routes: Routes = [
   { path: '', title: 'Home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'auth', title: 'Authentication', component: LoginComponent },
-  { path: 'movies', title: 'Movies', component: MoviesComponent }
+  { path: 'movies', title: 'Movies', component: MoviesComponent },
+  {
+    path: 'users', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(mod => {
+      return (mod.LazyLoadingModule)
+    })
+  }
 ];
 
 @NgModule({
