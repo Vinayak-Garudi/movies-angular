@@ -1,1 +1,12 @@
-<p>movies works!</p>
+ <div class="movieContainer">
+        <div *ngFor="let movies of movieArr" class="movieContent">
+            <div *ngIf="movies.primaryImage.url" class="card">
+                <img [src]="movies.primaryImage.url" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">{{movies.originalTitleText.text}}</h4>
+                    <h6>Released On: {{movies.releaseYear.year}}</h6>
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+        </div>
+    </div>

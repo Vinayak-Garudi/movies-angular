@@ -7,12 +7,21 @@ import { UserDetailsService } from 'src/app/services/user-details.service';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit, OnChanges {
-  
-  constructor(private userData: UserDetailsService) { }
+  movieArr: any[] = []
+
+  constructor(private userData: UserDetailsService) {
+  }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      console.log("movie console", this.userData.movieResponse.results)
+      this.userData.movieResponse.results.forEach((data: any) => {
+        if (data.primaryImage) {
+          this.movieArr.push(data)
+        }
+      });
+    }, 2000);
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.userData.getMovieResponse())
   }
 }
