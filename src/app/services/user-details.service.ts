@@ -19,7 +19,7 @@ export class UserDetailsService implements OnChanges, OnInit {
   constructor(private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -39,6 +39,7 @@ export class UserDetailsService implements OnChanges, OnInit {
 
   updateMovieResponse(res: any) {
     this.movieResponse = res
+    // this.getMovieResponse()
     console.log("movies", this.movieResponse)
   }
 

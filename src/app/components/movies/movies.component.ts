@@ -1,16 +1,17 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { UserDetailsService } from 'src/app/services/user-details.service';
-import { Observable, filter, from, interval, map } from 'rxjs';
+import { Observable, Subscription, filter, from, interval, map, observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit, OnChanges {
+export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
   movieArr: any[] = []
   filteredMovieArr: any[] = []
   searchMovie: string = ""
+  observableSubs!: Subscription
 
   constructor(private userData: UserDetailsService) {
   }
@@ -28,19 +29,23 @@ export class MoviesComponent implements OnInit, OnChanges {
       }
     }, 2000);
 
-    const observable = new Observable((observer => {
+     const observable = new Observable((observer => {
       observer.next(1)
       observer.next(2)
       observer.next(3)
       observer.complete()
     }))
 
+    const myObservable = of(1, 2, 3)
+
     const arrayObservable = from([1, 2, 3, 4, 5])
 
     const intervalObservable = interval(1000)
 
+
+
     observable.subscribe(
-      value => console.log("observalble value", value),
+      next => console.log("observalble value", next),
       error => console.log("observalble error", error),
       () => console.log('observable completed!')
     )
@@ -56,8 +61,22 @@ export class MoviesComponent implements OnInit, OnChanges {
       filter((val: any) => val > 20)
     )
       .subscribe((val: any) => console.log("arrSub", val))
+
+   this.observableSubs = intervalObservable.subscribe((val: any) => {
+      if (val < 5) {
+        console.log("valll", val)
+      }
+    })
+
+    this.observableSubs = myObservable.subscribe((val: any) => {
+      console.log("valueee", val * 10)
+    })
   }
   ngOnChanges(changes: SimpleChanges): void {
+  }
+
+  ngOnDestroy(): void {
+    this.observableSubs.unsubscribe()
   }
 
   onMovieSearch() {
