@@ -5,6 +5,8 @@ import { LazyLoadingRoutingModule } from './lazy-loading-routing.module';
 import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin/admin.component';
 
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 @NgModule({
   declarations: [
     UsersComponent,
@@ -12,7 +14,8 @@ import { AdminComponent } from './admin/admin.component';
   ],
   imports: [
     CommonModule,
-    LazyLoadingRoutingModule
+    LazyLoadingRoutingModule,
+    NgApexchartsModule
   ],
   exports: [UsersComponent, AdminComponent]
 })
