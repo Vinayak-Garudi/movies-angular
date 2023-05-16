@@ -1,18 +1,13 @@
-<div style="text-align:center">
-    <!-- <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [xaxis]="chartOptions.xaxis"
-      [title]="chartOptions.title"
-    ></apx-chart> -->
-    hello user 
-    <apx-chart [series]="chartSeries" [chart]="chartDetails"></apx-chart>
+<div class="userContainer">
+  <h3>User Dummy graphs</h3>
+  <div class="twoGraphs">
+    <div class="pieChartDiv">
+      <apx-chart class="pieChart" [series]="chartSeries" [chart]="chartDetails"></apx-chart>
+    </div>
 
-    <apx-chart
-    [series]="lineChart.series"
-    [chart]="lineChart.chart"
-    [xaxis]="lineChart.xaxis"
-    [title]="lineChart.title"
-  ></apx-chart>
+    <div class="areaGraphDiv">
+      <apx-chart class="areaGraph" [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis"
+        [title]="lineChart.title"></apx-chart>
+    </div>
   </div>
-  
+</div>

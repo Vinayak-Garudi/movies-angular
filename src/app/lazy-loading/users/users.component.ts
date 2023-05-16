@@ -29,7 +29,7 @@ export class UsersComponent {
 
   chartSeries: any = [40, 32, 28, 55]
   chartDetails: any = {
-    type: 'pie',
+    type: 'pie'
     // toolbar: true
   }
 
@@ -45,7 +45,6 @@ export class UsersComponent {
       }
     ],
     chart: {
-      height: 350,
       type: "area"
     },
     title: {
