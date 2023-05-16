@@ -19,7 +19,7 @@ export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit(): void {
 
     this.userData.fetchMovies().subscribe((res: any) => {
-      res.results.forEach((data:any) => {
+      res.results.forEach((data: any) => {
         if (data.primaryImage) {
           this.movieArr.push(data)
           this.filteredMovieArr = this.movieArr
@@ -32,7 +32,6 @@ export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
       observer.next(2)
       observer.next(3)
       observer.complete()
-
     }
 
     const sequence = new Observable(sequenceSubscriber)
