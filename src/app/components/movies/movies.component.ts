@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { UserDetailsService } from 'src/app/services/user-details.service';
-import { Observable, Subscription, filter, from, interval, map, observable, of } from 'rxjs';
+import { Observable, Observer, Subscription, filter, from, interval, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -17,24 +17,34 @@ export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      console.log("movie console", this.userData.movieResponse.results)
-      if (this.userData.movieResponse.results) {
-        this.userData.movieResponse.results.forEach((data: any) => {
-          if (data.primaryImage) {
-            this.movieArr.push(data)
-            this.filteredMovieArr = this.movieArr
-          }
-        });
-      }
-    }, 2000);
 
-     const observable = new Observable((observer => {
+    this.userData.fetchMovies().subscribe((res: any) => {
+      res.results.forEach((data:any) => {
+        if (data.primaryImage) {
+          this.movieArr.push(data)
+          this.filteredMovieArr = this.movieArr
+        }
+      })
+    })
+
+    function sequenceSubscriber(observer: Observer<number>) {
       observer.next(1)
       observer.next(2)
       observer.next(3)
       observer.complete()
-    }))
+
+    }
+
+    const sequence = new Observable(sequenceSubscriber)
+
+    sequence.subscribe({
+      next(num) {
+        console.log("nummm", num * 10)
+      },
+      complete() {
+        console.log("Finished sequence")
+      },
+    })
 
     const myObservable = of(1, 2, 3)
 
@@ -42,27 +52,13 @@ export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
 
     const intervalObservable = interval(1000)
 
-
-
-    observable.subscribe(
-      next => console.log("observalble value", next),
-      error => console.log("observalble error", error),
-      () => console.log('observable completed!')
-    )
-
-    observable.pipe(
-      map((val: any) => val * 2),
-      filter((val: any) => val > 3)
-    )
-      .subscribe((val) => console.log("value...", val))
-
     arrayObservable.pipe(
       map((val: any) => val * 10),
       filter((val: any) => val > 20)
     )
       .subscribe((val: any) => console.log("arrSub", val))
 
-   this.observableSubs = intervalObservable.subscribe((val: any) => {
+    this.observableSubs = intervalObservable.subscribe((val: any) => {
       if (val < 5) {
         console.log("valll", val)
       }
@@ -91,7 +87,6 @@ export class MoviesComponent implements OnInit, OnChanges, OnDestroy {
     else {
       this.filteredMovieArr = this.movieArr
     }
-    console.log("filteredMovie", this.filteredMovieArr)
   }
 
 }

@@ -1,5 +1,7 @@
 import { Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,16 @@ export class UserDetailsService implements OnChanges, OnInit {
   ]
   invalidCred: boolean = false
   movieResponse: any = []
+  moviesApi: string = 'https://moviesdatabase.p.rapidapi.com/titles'
 
-  constructor(private router: Router) {
+  fetchMovies(): Observable<any[]> {
+    const headers = new HttpHeaders()
+      .set('X-RapidAPI-Key', '00ec652496mshde02c198d2ab51cp18810fjsn35525a14102f')
+      .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com')
+    return this.http.get<any[]>(this.moviesApi, { headers })
+  }
+
+  constructor(private router: Router, private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -39,8 +49,6 @@ export class UserDetailsService implements OnChanges, OnInit {
 
   updateMovieResponse(res: any) {
     this.movieResponse = res
-    // this.getMovieResponse()
-    console.log("movies", this.movieResponse)
   }
 
   handleLogin(email: string, password: string) {
