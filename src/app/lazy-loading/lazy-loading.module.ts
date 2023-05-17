@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   imports: [
     CommonModule,
     LazyLoadingRoutingModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    ReactiveFormsModule
   ],
   exports: [UsersComponent, AdminComponent]
 })

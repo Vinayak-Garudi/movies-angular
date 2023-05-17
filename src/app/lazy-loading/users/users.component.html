@@ -1,22 +1,24 @@
 <div class="userContainer">
-  <h3>User Dummy graphs using apex charts</h3>
+  <h3 style="margin-top: 2rem;">User Dummy graphs using apex charts</h3>
   <div class="twoGraphs">
     <div class="pieChartDiv">
       <apx-chart class="pieChart" [series]="chartSeries" [chart]="chartDetails"></apx-chart>
     </div>
 
-    <div *ngIf="forecastChart" class="areaGraphDiv">
+    <div *ngIf="forecastChart; else elseBlock" class="areaGraphDiv">
       <apx-chart class="areaGraph" [series]="forecastChart.series" [chart]="forecastChart.chart"
         [xaxis]="forecastChart.xaxis" [title]="forecastChart.title"></apx-chart>
     </div>
+    <ng-template #elseBlock>
+      <div class="areaGraphDiv">
+        <apx-chart class="areaGraph" [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis"
+          [title]="lineChart.title"></apx-chart>
+      </div>
+    </ng-template>
 
     <div class="guageChartDiv">
-      <!-- <ngx-charts-gauge class="guageChart" [view]="ngxview" [results]="gaugeData" [min]="0" [max]="100" [angleSpan]="240"
-        [startAngle]="-120" [units]="'%'"></ngx-charts-gauge> -->
-
       <apx-chart class="guageChart" [series]="guageChartOptions.series" [chart]="guageChartOptions.chart"
         [plotOptions]="guageChartOptions.plotOptions" [labels]="guageChartOptions.labels"></apx-chart>
-
     </div>
   </div>
 </div>

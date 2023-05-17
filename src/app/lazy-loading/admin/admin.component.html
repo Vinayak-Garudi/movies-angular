@@ -1,3 +1,21 @@
 <div class="adminContainer">
-    <h3>Nothing to show in this admin page</h3>
+    <form [formGroup]="adminForm" class="adminForms">
+        <h2 style="text-decoration: underline;">Admin Form</h2>
+        <div class="adminFormIp">
+            <input formControlName="username" class="adminip" type="text" placeholder="Username...">
+        </div>
+        <div class="adminFormIp">
+            <input formControlName="fname" class="adminip" type="text" placeholder="First name...">
+        </div>
+        <div class="adminFormIp">
+            <input formControlName="email" class="adminip" type="email" placeholder="Email...">
+            <span *ngIf="emailCheck && emailCheck.invalid && emailCheck.touched"
+                style="color: red; font-size: small; font-weight: bold;">Invalid Input!</span>
+        </div>
+        <div class="adminFormIp">
+            <input formControlName="contact" class="adminip" type="number" placeholder="Contact...">
+        </div>
+
+        <button (click)="adminForm.reset()" [disabled]="adminForm.invalid" class="btn btn-danger">Submit</button>
+    </form>
 </div>

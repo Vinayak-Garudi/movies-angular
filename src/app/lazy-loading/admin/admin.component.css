@@ -10,3 +10,30 @@
     justify-content: center;
     align-items: center;
 }
+
+.adminForms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.adminFormIp {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.adminip {
+    width: 25rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.adminip.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

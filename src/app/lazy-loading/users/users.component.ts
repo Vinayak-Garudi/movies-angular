@@ -7,8 +7,6 @@ import { UserDetailsService } from 'src/app/services/user-details.service';
   styleUrls: ['./users.component.css']
 })
 
-// learn ngx-charts
-
 export class UsersComponent implements OnInit {
 
 
@@ -21,11 +19,11 @@ export class UsersComponent implements OnInit {
   lineChart: any = {
     series: [
       {
-        name: "MyData",
+        name: "My Data",
         data: [10, 50, 30, 40, 50],
       },
       {
-        name: "YourData",
+        name: "Your Data",
         data: [20, 10, 50, 40, 50],
       }
     ],
@@ -33,7 +31,7 @@ export class UsersComponent implements OnInit {
       type: "area"
     },
     title: {
-      text: "Line Chart"
+      text: "Some Chart"
     },
     xaxis: {
       categories: [1, 2, 3, 4, 5]
@@ -70,12 +68,9 @@ export class UsersComponent implements OnInit {
           track: {
             background: "#fff",
           },
-          fill: {
-            colors: ['#aa4a44']
-          }
         },
         labels: ['Guage'],
-      },
+      }
     }
 
   }
