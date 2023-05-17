@@ -13,6 +13,10 @@
     <div class="guageChartDiv">
       <!-- <ngx-charts-gauge class="guageChart" [view]="ngxview" [results]="gaugeData" [min]="0" [max]="100" [angleSpan]="240"
         [startAngle]="-120" [units]="'%'"></ngx-charts-gauge> -->
+
+      <apx-chart class="guageChart" [series]="guageChartOptions.series" [chart]="guageChartOptions.chart"
+        [plotOptions]="guageChartOptions.plotOptions" [labels]="guageChartOptions.labels"></apx-chart>
+
     </div>
   </div>
 </div>

@@ -25,13 +25,19 @@
     width: 100%;
 }
 
-.areaGraphDiv {
+.areaGraphDiv,
+.guageChartDiv {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30rem;
     width: 30rem;
     margin: 2rem 0;
+}
+
+.guageChart {
+    width: 100%;
+    color: white;
 }
 
 .areaGraph {
