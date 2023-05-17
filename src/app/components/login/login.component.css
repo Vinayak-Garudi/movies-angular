@@ -34,6 +34,14 @@
     border: none;
 }
 
+.authips.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.authips.ng-valid.ng-touched {
+    border: 2px solid green;
+}
+
 .ipLabel {
     font-size: larger;
     font-weight: 500;

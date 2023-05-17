@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmailValidatorsComponent } from './components/email-validators/email-validators.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavbarComponent,
     LoginComponent,
-    MoviesComponent
+    MoviesComponent,
+    EmailValidatorsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UserDetailsService } from 'src/app/services/user-details.service';
+import { EmailValidatorsComponent } from '../email-validators/email-validators.component';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,8 @@ export class LoginComponent {
   invalidCred: boolean = this.userData.invalidCred
 
   constructor(private userData: UserDetailsService, private formBuilder: FormBuilder) {
-    this.authForm = formBuilder.group({
-      email: [''],
+    this.authForm = this.formBuilder.group({
+      email: ['', [EmailValidatorsComponent.email]],
       password: ['']
     })
   }

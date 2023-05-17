@@ -4,14 +4,15 @@
         <form [formGroup]="authForm" class="authForm">
             <div class="ipFields">
                 <div class="ipLabel">Email</div>
-                <input required type="email" formControlName="email" class="authips" placeholder="Email...">
+                <input type="email" formControlName="email" class="authips" placeholder="Email...">
             </div>
             <div class="ipFields">
                 <div class="ipLabel">Password</div>
-                <input required type="password" formControlName="password" class="authips" placeholder="Email...">
+                <input required type="password" formControlName="password" class="authips" placeholder="Password...">
             </div>
 
-            <div *ngIf="this.invalidCred" style="display: flex; justify-content: center; color: red;">Invalid Credentials!</div>
+            <div *ngIf="this.invalidCred" style="display: flex; justify-content: center; color: red;">Invalid
+                Credentials!</div>
 
             <div class="authBtns">
                 <button (click)="login()" class="authBtn">Log In</button>
