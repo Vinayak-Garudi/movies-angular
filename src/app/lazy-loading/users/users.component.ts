@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserDetailsService } from 'src/app/services/user-details.service';
 // import {
 //   ChartComponent,
 //   ApexAxisChartSeries,
@@ -20,8 +21,9 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 
+// learn ngx-charts
 
-export class UsersComponent {
+export class UsersComponent implements OnInit {
 
   // @ViewChild("chart") chart!: ChartComponent;
 
@@ -55,7 +57,20 @@ export class UsersComponent {
     }
   }
 
-  constructor() {
+  forecastArr: any[] = []
+  maxTemp: any[] = []
+  dateArr: any[] = []
+  forecastChart!: any
+
+  ngxview: any = [400, 300]
+  gaugeData: any = [
+    {
+      name: 'Value',
+      value: 75
+    }
+  ];
+
+  constructor(private userData: UserDetailsService) {
     // this.chartOptions = {
     //   series: [
     //     {
@@ -74,6 +89,48 @@ export class UsersComponent {
     //     categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
     //   }
     // };
+  }
+
+  ngOnInit(): void {
+    this.userData.fetchForecast().subscribe((res: any) => {
+      console.log("forecast res", res.items)
+      res.items.forEach((element: any) => {
+        if (this.forecastArr.length < 5) {
+          this.forecastArr.push(
+            {
+              maxTemp: element.temperature.max,
+              date: new Date(element.date),
+              showDate: element.date
+            }
+          )
+        }
+      });
+      this.forecastArr.sort((a, b) => a.date - b.date)
+      console.log("forrr", this.forecastArr)
+
+      this.forecastArr.forEach((data: any) => {
+        this.maxTemp.push(data.maxTemp)
+        this.dateArr.push(data.showDate)
+      })
+
+      this.forecastChart = {
+        series: [
+          {
+            name: "Max Temperature",
+            data: this.maxTemp,
+          }
+        ],
+        chart: {
+          type: "area"
+        },
+        title: {
+          text: "Line Chart"
+        },
+        xaxis: {
+          categories: this.dateArr
+        }
+      }
+    })
   }
 
 

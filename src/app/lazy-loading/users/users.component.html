@@ -1,13 +1,18 @@
 <div class="userContainer">
-  <h3>User Dummy graphs</h3>
+  <h3>User Dummy graphs using apex charts</h3>
   <div class="twoGraphs">
     <div class="pieChartDiv">
       <apx-chart class="pieChart" [series]="chartSeries" [chart]="chartDetails"></apx-chart>
     </div>
 
-    <div class="areaGraphDiv">
-      <apx-chart class="areaGraph" [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis"
-        [title]="lineChart.title"></apx-chart>
+    <div *ngIf="forecastChart" class="areaGraphDiv">
+      <apx-chart class="areaGraph" [series]="forecastChart.series" [chart]="forecastChart.chart"
+        [xaxis]="forecastChart.xaxis" [title]="forecastChart.title"></apx-chart>
+    </div>
+
+    <div class="guageChartDiv">
+      <!-- <ngx-charts-gauge class="guageChart" [view]="ngxview" [results]="gaugeData" [min]="0" [max]="100" [angleSpan]="240"
+        [startAngle]="-120" [units]="'%'"></ngx-charts-gauge> -->
     </div>
   </div>
 </div>
