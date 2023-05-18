@@ -7,11 +7,13 @@ import { AdminComponent } from './admin/admin.component';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChatGptComponent } from './chat-gpt/chat-gpt.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
-    AdminComponent
+    AdminComponent,
+    ChatGptComponent
   ],
   imports: [
     CommonModule,

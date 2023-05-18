@@ -1,0 +1,19 @@
+<div class="pageContainer">
+    <div class="chatContent">
+        <div *ngIf="chatResponses.length > 0; else elseBlock" class="chatResponses">
+            <div class="chatContents" *ngFor="let res of chatResponses">
+                <div class="chatQues">{{res.question}}</div>
+                <div class="chatAns">{{res.answer}}</div>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div class="emptyChat">
+                <h3>Ask your doubts here!</h3>
+            </div>
+        </ng-template>
+    </div>
+    <form [formGroup]="openAIForm" class="chatTextAreaForm">
+        <input (keyup.enter)="handleSend()" formControlName="promptValue" placeholder="Ask a question..." class="chatIp" type="text">
+        <button [disabled]="openAIForm.invalid" type="button" (click)="handleSend()" class="sendBtn">Send</button>
+    </form>
+</div>

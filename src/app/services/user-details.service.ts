@@ -19,6 +19,7 @@ export class UserDetailsService implements OnChanges, OnInit {
   movieResponse: any = []
   moviesApi: string = 'https://moviesdatabase.p.rapidapi.com/titles'
   forecastApi: string = "https://forecast9.p.rapidapi.com/rapidapi/forecast/46.95828/10.87152/summary/"
+  openAIApi: string = "https://chatgpt-open-ai-nlp.p.rapidapi.com/"
 
   fetchMovies(): Observable<any[]> {
     const headers = new HttpHeaders()
