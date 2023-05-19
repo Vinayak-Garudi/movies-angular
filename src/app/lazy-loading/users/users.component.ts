@@ -42,6 +42,7 @@ export class UsersComponent implements OnInit {
   maxTemp: any[] = []
   dateArr: any[] = []
   forecastChart!: any
+  datee: any = ""
 
   ngxview: any = [400, 300]
   gaugeData: any = [
@@ -93,6 +94,7 @@ export class UsersComponent implements OnInit {
       console.log("forrr", this.forecastArr)
 
       this.forecastArr.forEach((data: any) => {
+       this.datee = data.date
         this.maxTemp.push(data.maxTemp)
         this.dateArr.push(data.showDate)
       })

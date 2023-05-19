@@ -8,12 +8,14 @@ import { AdminComponent } from './admin/admin.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatGptComponent } from './chat-gpt/chat-gpt.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     AdminComponent,
-    ChatGptComponent
+    ChatGptComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,6 @@ import { ChatGptComponent } from './chat-gpt/chat-gpt.component';
     NgApexchartsModule,
     ReactiveFormsModule
   ],
-  exports: [UsersComponent, AdminComponent]
+  exports: [UsersComponent, AdminComponent,ChatGptComponent,AboutComponent]
 })
 export class LazyLoadingModule { }

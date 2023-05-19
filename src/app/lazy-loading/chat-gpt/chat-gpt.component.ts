@@ -14,6 +14,8 @@ export class ChatGptComponent {
     promptValue: ['', Validators.required]
   })
 
+  // learn ng-zorro and scss
+
   constructor(private http: HttpClient, private userDetails: UserDetailsService, private fb: FormBuilder) { }
 
   handleSend() {
@@ -28,7 +30,6 @@ export class ChatGptComponent {
         temperature: '0.7'
       }
       this.http.post<any[]>(this.userDetails.openAIApi, body, { headers }).subscribe((res: any) => {
-        console.log("chat res", res)
         this.chatResponses.push(
           {
             question: this.openAIForm.get('promptValue')?.value,
