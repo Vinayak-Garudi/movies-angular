@@ -3,6 +3,7 @@
         <input [(ngModel)]="searchMovie" (ngModelChange)="onMovieSearch()" name="movieSearch" type="text"
             class="searchIp" placeholder="Search for movies...">
     </div>
+    <h3 style="margin: 2rem;">{{10 | currency:'USD':'symbol':'1.0-0'}} = {{10 | usdinr:70}}</h3>
     <div class="movieContainer" *ngIf="filteredMovieArr.length>0; else elseBlock">
         <div *ngFor="let movies of filteredMovieArr" class="movieContent">
             <div *ngIf="movies.primaryImage.url" class="card">

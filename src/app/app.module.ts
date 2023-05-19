@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmailValidatorsComponent } from './components/email-validators/email-validators.component';
+import { UsdinrPipe } from './pipes/usdinr.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EmailValidatorsComponent } from './components/email-validators/email-va
     NavbarComponent,
     LoginComponent,
     MoviesComponent,
-    EmailValidatorsComponent
+    EmailValidatorsComponent,
+    UsdinrPipe
   ],
   imports: [
     BrowserModule,
