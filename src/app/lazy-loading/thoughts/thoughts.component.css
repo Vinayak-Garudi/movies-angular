@@ -1,0 +1,76 @@
+.thoughtsFirstContent {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.thoughtsImgDiv {
+    width: 40vw;
+    height: 50vh;
+    padding: 1rem;
+}
+
+.thoughtsText {
+    width: 50vw;
+    padding: 1rem;
+}
+
+.thoughtsText {
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textAreaMainContent {
+    width: 100vw;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+.textareaDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.textareaIp {
+    width: 97%;
+    font-size: larger;
+    padding: 0.5rem;
+}
+
+.sendThoughtBtn {
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: 0;
+    border-radius: .3rem;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 500;
+    padding: 0.15rem 1.5rem;
+    cursor: pointer;
+    float: right;
+    right: 0;
+    position: relative;
+}
+
+.sendThought {
+    width: 97vw;
+    margin: 0.5rem 0;
+}
+
+@media screen and (orientation:portrait) {
+    .thoughtsImgDiv {
+        width: 97vw;
+    }
+
+    .thoughtsText {
+        width: 97vw;
+    }
+
+    .sendThought {
+        width: 97%;
+    }
+}

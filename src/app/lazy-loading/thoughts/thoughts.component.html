@@ -1,0 +1,25 @@
+<div class="pageContainer">
+    <div class="thoughtsFirstContent">
+        <div class="thoughtsImgDiv">
+            <img style="width: 100%;height: 100%;" class="thoughtsImg" src="/assets/images/thoughts.png" alt="...">
+        </div>
+        <div class="thoughtsText">
+            Venting out thoughts can be a powerful tool for personal well-being. It offers a cathartic release, allowing
+            us to unload the weight of our emotions and frustrations. By expressing our thoughts, we gain clarity and a
+            sense of relief, freeing ourselves from the burden that weighs us down. Venting provides an opportunity for
+            self-reflection and introspection, enabling us to process our experiences and make room for positive growth.
+            So, let your thoughts flow freely, embrace the liberation it brings, and embark on a journey towards a
+            lighter, more peaceful mind.
+        </div>
+    </div>
+
+    <div class="textAreaMainContent">
+        <h3>Vent your thoughts here...</h3>
+        <div class="textareaDiv">
+            <textarea class="textareaIp" [(ngModel)]="thought" (input)="adjustTextArea()"></textarea>
+        </div>
+        <div class="sendThought">
+            <button class="sendThoughtBtn">Send</button>
+        </div>
+    </div>
+</div>
