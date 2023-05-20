@@ -1,16 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-thoughts',
   templateUrl: './thoughts.component.html',
   styleUrls: ['./thoughts.component.css']
 })
-export class ThoughtsComponent implements OnInit {
+export class ThoughtsComponent implements OnInit, DoCheck {
   thought: string = ''
   showThought: boolean = false
   feelPop: boolean = false
+  temp: string = ""
+
+
   ngOnInit(): void {
     window.scroll(0, 0)
+    setTimeout(() => {
+      this.temp = "temp changed"
+    }, 3000);
+  }
+
+  ngDoCheck(): void {
+    console.log("temppp", this.temp)
   }
 
   adjustTextArea() {
