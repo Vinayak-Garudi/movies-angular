@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThoughtsComponent implements OnInit {
   thought: string = ''
+  showThought: boolean = false
+  feelPop: boolean = false
   ngOnInit(): void {
     window.scroll(0, 0)
   }
@@ -17,5 +19,17 @@ export class ThoughtsComponent implements OnInit {
       textarea.style.height = 'auto';
       textarea.style.height = textarea.scrollHeight + 'px';
     }
+  }
+
+  sendThought() {
+    this.showThought = true
+    setTimeout(() => {
+      this.showThought = false
+      this.feelPop = true
+    }, 1000);
+  }
+
+  continueWriting() {
+    this.feelPop = false
   }
 }

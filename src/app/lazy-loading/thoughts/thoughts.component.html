@@ -13,13 +13,23 @@
         </div>
     </div>
 
-    <div class="textAreaMainContent">
+    <div *ngIf="!showThought && !feelPop;else elseBlock" class="textAreaMainContent">
         <h3>Vent your thoughts here...</h3>
         <div class="textareaDiv">
             <textarea class="textareaIp" [(ngModel)]="thought" (input)="adjustTextArea()"></textarea>
         </div>
         <div class="sendThought">
-            <button class="sendThoughtBtn">Send</button>
+            <button (click)="sendThought()" class="sendThoughtBtn">Send</button>
         </div>
+    </div>
+    <ng-template #elseBlock>
+        <div *ngIf="!feelPop" class="thoughtDiv">
+            {{thought}}
+        </div>
+    </ng-template>
+
+    <div *ngIf="feelPop" class="popDiv">
+        <h4>I hope you are feeling better...</h4>
+        <h5 (click)="continueWriting()" class="continueLine">Continue to write more?</h5>
     </div>
 </div>

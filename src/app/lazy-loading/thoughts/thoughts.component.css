@@ -6,7 +6,7 @@
 }
 
 .thoughtsImgDiv {
-    width: 40vw;
+    /* width: 35vw; */
     height: 50vh;
     padding: 1rem;
 }
@@ -59,6 +59,24 @@
 .sendThought {
     width: 97vw;
     margin: 0.5rem 0;
+}
+
+.thoughtDiv {
+    width: 90%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #fff;
+    margin: 1rem 0;
+    box-shadow: 0.1rem 0.1rem 1rem #fff;
+}
+
+.continueLine {
+    font-weight: bold;
+    text-decoration: underline;
+    color: cyan;
 }
 
 @media screen and (orientation:portrait) {
