@@ -26,10 +26,11 @@ export class ThoughtsComponent implements OnInit {
     setTimeout(() => {
       this.showThought = false
       this.feelPop = true
-    }, 1000);
+    }, 2500);
   }
 
   continueWriting() {
     this.feelPop = false
+    this.thought = ''
   }
 }
