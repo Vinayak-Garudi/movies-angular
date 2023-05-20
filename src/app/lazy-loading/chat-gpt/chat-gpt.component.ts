@@ -23,7 +23,7 @@ export class ChatGptComponent {
       const headers = new HttpHeaders()
         .set('content-type', 'application/json')
         .set('Type', 'chatgpt4')
-        .set('X-RapidAPI-Key', '00ec652496mshde02c198d2ab51cp18810fjsn35525a14102f')
+        .set('X-RapidAPI-Key', '7d24bdaad4msh8f98b48025207abp1cb766jsncbe35c377280')
         .set('X-RapidAPI-Host', 'chatgpt-open-ai-nlp.p.rapidapi.com')
       const body = {
         prompt: JSON.stringify(this.openAIForm.get('promptValue')?.value),
