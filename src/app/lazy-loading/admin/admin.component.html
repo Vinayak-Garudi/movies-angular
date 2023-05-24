@@ -7,6 +7,10 @@
         <div class="adminFormIp">
             <input formControlName="fname" class="adminip" type="text" placeholder="First name...">
         </div>
+        <div *ngIf="adminForm.get('fname')?.errors?.['range'] && adminForm.get('fname')?.touched"
+            style="font-size: small;color: red;">Range should be between 5-10</div>
+        <div *ngIf="!adminForm.get('fname')?.value && adminForm.get('fname')?.touched"
+            style="font-size: small;color: red;">required field</div>
         <div class="adminFormIp">
             <input formControlName="email" class="adminip" type="email" placeholder="Email...">
             <span *ngIf="emailCheck && emailCheck.invalid && emailCheck.touched"
