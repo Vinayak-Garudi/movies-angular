@@ -6,14 +6,21 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, FormArray } from '
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
 export class AdminComponent implements OnInit {
 
   myForm: FormGroup;
   dummyArr: any[] = [1, 2]
-  adminForm!: FormGroup
-
-  get itemControls() {
-    return this.myForm.get('items') as FormArray;
+  objArr: any[] = [
+    { res1: "res1" },
+    { res2: "res2" },
+    { res3: "res3" },
+  ]
+  adminForm: FormGroup
+  dummyObj: any = {
+    data1: "data1",
+    data2: "data2",
+    data3: "data3"
   }
 
   rangeValidator(min: number, max: number) {
@@ -24,6 +31,10 @@ export class AdminComponent implements OnInit {
       }
       return null
     }
+  }
+
+  get itemControls() {
+    return this.myForm.get('items') as FormArray;
   }
 
   constructor(private fb: FormBuilder) {
@@ -42,10 +53,16 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dummyArr.forEach(element => {
+    this.dummyArr.forEach(() => {
       this.itemControls.push(this.createItem());
     });
     this.removeItem(0)
+
+    this.objArr.forEach(ele => {
+      Object.assign(this.dummyObj,ele)
+    })
+    delete this.dummyObj['res1']
+    console.log("objjjj",this.dummyObj)
   }
 
   createItem(): FormGroup {
