@@ -22,4 +22,18 @@
 
         <button (click)="adminForm.reset()" [disabled]="adminForm.invalid" class="btn btn-danger">Submit</button>
     </form>
+
+    <form [formGroup]="myForm">
+        <div formArrayName="items">
+            <div *ngFor="let item of itemControls.controls; let i = index" [formGroupName]="i">
+                <input formControlName="name" placeholder="Item Name">
+                <button (click)="removeItem(i)">Remove</button>
+            </div>
+        </div>
+        <div>
+            <input type="text" formControlName="dummyip" placeholder="dummy input">
+        </div>
+        <button (click)="addItem()">Add Item</button>
+        <button (click)="showData()">Save Item</button>
+    </form>
 </div>
