@@ -10,13 +10,13 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, FormArray } from '
 export class AdminComponent implements OnInit {
 
   myForm: FormGroup;
+  adminForm: FormGroup
   dummyArr: any[] = [1, 2]
   objArr: any[] = [
     { res1: "res1" },
     { res2: "res2" },
     { res3: "res3" },
   ]
-  adminForm: FormGroup
   dummyObj: any = {
     data1: "data1",
     data2: "data2",
@@ -39,7 +39,7 @@ export class AdminComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
-      items: this.fb.array([this.createItem()]),
+      items: this.fb.array([]),
       dummyip: ['']
     });
 
@@ -55,14 +55,12 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.dummyArr.forEach(() => {
       this.itemControls.push(this.createItem());
-    });
-    this.removeItem(0)
-
+    })
     this.objArr.forEach(ele => {
-      Object.assign(this.dummyObj,ele)
+      Object.assign(this.dummyObj, ele)
     })
     delete this.dummyObj['res1']
-    console.log("objjjj",this.dummyObj)
+    console.log("objjjj", this.dummyObj)
   }
 
   createItem(): FormGroup {
