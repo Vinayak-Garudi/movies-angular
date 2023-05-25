@@ -104,23 +104,22 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  createNewItem(): FormGroup {
-    return this.fb.group({
-      auxEng: ['', Validators.required],
-      mainEng: ['', Validators.required],
-    });
+  createNewItem(controlName: string): FormGroup | null {
+    if (controlName === 'auxEng') {
+      return this.fb.group({
+        auxEng: ['', Validators.required],
+      });
+    } else if (controlName === 'mainEng') {
+      return this.fb.group({
+        mainEng: ['', Validators.required],
+      });
+    }
+    return null;
   }
 
   addNewItem(controlName: string) {
-    if (controlName === 'auxEng') {
-      const temp = this.createNewItem();
-      temp.removeControl('mainEng');
-      this.newItemControls.push(temp);
-    } else if (controlName === 'mainEng') {
-      const temp = this.createNewItem();
-      temp.removeControl('auxEng');
-      this.newItemControls.push(temp);
-    }
+    const temp = this.createNewItem(controlName);
+    this.newItemControls.push(temp);
   }
 
   auxEngAdded(index: number) {
