@@ -25,6 +25,12 @@ export class AdminComponent implements OnInit {
     data2: 'data2',
     data3: 'data3',
   };
+  engIncrement: number[] = [];
+  engObj: any = {
+    engKey: '12345',
+    engName: 'Super Engine',
+    engType: 'ship',
+  };
 
   rangeValidator(min: number, max: number) {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
@@ -81,12 +87,14 @@ export class AdminComponent implements OnInit {
     delete this.dummyObj['res1'];
     console.log('objjjj', this.dummyObj);
 
-    this.auxEngArr.forEach(() => {
+    this.auxEngArr.forEach((ele, i) => {
       this.addNewItem('auxEng');
+      this.engIncrement.push(i + 1);
     });
 
-    this.mainEngArr.forEach(() => {
+    this.mainEngArr.forEach((ele, i) => {
       this.addNewItem('mainEng');
+      this.engIncrement.push(i + 1);
     });
   }
 
@@ -137,5 +145,27 @@ export class AdminComponent implements OnInit {
 
   get emailCheck() {
     return this.adminForm.get('email');
+  }
+
+  engData() {
+    console.log('engdata', this.newForm.value);
+    let auxTemp: any[] = [];
+    let mainTemp: any[] = [];
+    this.newForm.value.newItems.forEach((ele: any) => {
+      if (ele.auxEng) {
+        auxTemp.push(ele.auxEng);
+      }
+      if (ele.mainEng) {
+        mainTemp.push(ele.mainEng);
+      }
+    });
+    console.log('tempsss', auxTemp, mainTemp);
+    auxTemp.forEach((ele, i) => {
+      Object.assign(this.engObj, { [`auxEng${i + 1}`]: ele });
+    });
+    mainTemp.forEach((ele, i) => {
+      Object.assign(this.engObj, { [`mainEng${i + 1}`]: ele });
+    });
+    console.log('engObj', this.engObj);
   }
 }

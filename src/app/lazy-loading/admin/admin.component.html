@@ -86,19 +86,44 @@
         <ng-container *ngIf="auxEngAdded(i)">
           <input
             formControlName="auxEng"
-            placeholder="Aux Engine {{ i + 1 }}"
+            placeholder="Aux Engine {{ engIncrement[i] }}"
           />
         </ng-container>
-        <ng-container *ngIf="mainEngAdded(i)">
+        <!-- <ng-container *ngIf="mainEngAdded(i)">
           <input
             formControlName="mainEng"
             placeholder="Main Engine {{ i + 1 }}"
           />
-        </ng-container>
-        <button (click)="removeItem(i)">Remove</button>
+        </ng-container> -->
+        <!-- <button (click)="removeItem(i)">Remove</button> -->
       </div>
     </div>
-    <button (click)="addNewItem('auxEng')">Add Aux</button>
-    <button (click)="addNewItem('mainEng')">Add Main</button>
+    <!-- <button (click)="addNewItem('auxEng')">Add Aux</button> -->
+    <!-- <button (click)="addNewItem('mainEng')">Add Main</button> -->
+  </form>
+
+  <form [formGroup]="newForm">
+    <div formArrayName="newItems">
+      <div
+        *ngFor="let item of newItemControls.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <!-- <ng-container *ngIf="auxEngAdded(i)">
+          <input
+            formControlName="auxEng"
+            placeholder="Aux Engine {{ i + 1 }}"
+          />
+        </ng-container> -->
+        <ng-container *ngIf="mainEngAdded(i)">
+          <input
+            formControlName="mainEng"
+            placeholder="Main Engine {{ engIncrement[i] }}"
+          />
+        </ng-container>
+        <!-- <button (click)="removeItem(i)">Remove</button> -->
+      </div>
+    </div>
+    <button (click)="engData()">Eng Data</button>
+    <!-- <button (click)="addNewItem('mainEng')">Add Main</button> -->
   </form>
 </div>
