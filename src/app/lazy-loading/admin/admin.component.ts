@@ -146,6 +146,10 @@ export class AdminComponent implements OnInit {
     return this.adminForm.get('email');
   }
 
+  dummyAlert() {
+    alert("hello")
+  }
+
   engData() {
     console.log('engdata', this.newForm.value);
     let auxTemp: any[] = [];

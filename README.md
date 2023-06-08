@@ -25,3 +25,18 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Integrating Tauri App in Angular
+
+Run the following commands:  
+
+1. npm install --save-dev @tauri-apps/cli  
+2. inside package.json:  
+   "scripts": {
+   "tauri": "tauri"
+   }  
+3. npx tauri init  
+4. npx tauri dev  
+5. "allowlist": {
+   "all": true
+   },
