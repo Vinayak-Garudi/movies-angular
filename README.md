@@ -39,4 +39,9 @@ Run the following commands:
 4. npx tauri dev  
 5. "allowlist": {
    "all": true
-   },
+   },  
+6. To get .exe and .msi file:
+   npx tauri build
+7. Before that make sure you have 2 things installed:
+   a) Rust https://www.rust-lang.org/tools/install
+   b) VS code developer tools https://visualstudio.microsoft.com/visual-cpp-build-tools/ (add the 1st option of C++)
